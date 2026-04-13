@@ -5,17 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // Change the default HTML if we need a privacy checkbox and it's not there
         // For dynamic injection, we look if the privacy checkbox exists, if not we add it.
         if (!form.querySelector('.privacy-group')) {
-            const btn = form.querySelector('button[type="submit"]');
+            form.style.flexWrap = 'wrap';
+            const checkboxId = `privacy-check-${Math.random().toString(36).substring(7)}`;
             const privacyHtml = `
-                <div class="privacy-group" style="margin-top: 15px; text-align: left; font-size: 0.85rem; display: flex; align-items: flex-start; gap: 10px;">
-                    <input type="checkbox" id="privacy-check-${Math.random().toString(36).substring(7)}" name="privacy" required style="width: auto; margin-top: 3px;">
-                    <label for="privacy" style="color: #64748b; line-height: 1.4;">
-                        Ho letto e accetto la <a href="/privacy-policy.html" style="color: var(--primary); text-decoration: underline;">Privacy Policy</a>.
+                <div class="privacy-group" style="flex-basis: 100%; margin-top: 15px; text-align: center; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 5px; color: rgba(255,255,255,0.9);">
+                    <input type="checkbox" id="${checkboxId}" name="privacy" required checked style="width: auto; margin: 0; cursor: pointer; padding: 0;">
+                    <label for="${checkboxId}" style="line-height: 1.4; cursor: pointer; margin: 0;">
+                        Ho letto e accetto la <a href="privacy-policy.html" style="color: #ffffff; text-decoration: underline; font-weight: bold;">Privacy Policy</a>.
                     </label>
                 </div>
-                <div class="feedback-message" style="display: none; margin-top: 10px; font-weight: bold;"></div>
+                <div class="feedback-message" style="display: none; flex-basis: 100%; margin-top: 10px; font-weight: bold; text-align: center;"></div>
             `;
-            btn.insertAdjacentHTML('beforebegin', privacyHtml);
+            form.insertAdjacentHTML('beforeend', privacyHtml);
         }
 
         form.addEventListener('submit', async (e) => {
@@ -38,26 +39,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Point to our new API endpoint
                 const res = await fetch('/api/subscribe', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, privacy })
                 });
 
                 const data = await res.json();
 
+                feedbackMsg.style.padding = '10px 15px';
+                feedbackMsg.style.borderRadius = '8px';
+                feedbackMsg.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                feedbackMsg.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+
                 if (res.ok) {
                     feedbackMsg.style.color = '#16a34a'; // Success green
-                    feedbackMsg.innerText = data.message;
+                    feedbackMsg.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + data.message;
                     emailInput.value = '';
                     privacyCheck.checked = false;
                 } else {
                     feedbackMsg.style.color = '#dc2626'; // Error red
-                    feedbackMsg.innerText = data.error || 'Errore durante l\'iscrizione.';
+                    feedbackMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> ' + (data.error || 'Errore durante l\'iscrizione.');
                 }
             } catch (err) {
+                feedbackMsg.style.padding = '10px 15px';
+                feedbackMsg.style.borderRadius = '8px';
+                feedbackMsg.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
                 feedbackMsg.style.color = '#dc2626';
-                feedbackMsg.innerText = 'Impossibile contattare il server. Riprova più tardi.';
+                feedbackMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Impossibile contattare il server. Riprova più tardi.';
             }
 
             // Restore UI
