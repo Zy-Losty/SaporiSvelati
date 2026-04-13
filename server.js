@@ -8,7 +8,7 @@ const db = require('./database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123'; // Default password
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '@Nicola04'; // Default password
 
 // --- EMAIL CONFIGURATION ---
 // Istruzioni: Quando avrai l'account Resend.com
