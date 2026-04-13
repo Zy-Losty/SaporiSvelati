@@ -57,7 +57,7 @@ Per avviare il backend completo sul proprio PC:
 ---
 
 <div align="center">
-  <p>Created with <strong>Antigravity</strong> by <strong>Zhenyun Hu</strong></p>
+  <p>Created with <strong>antigravity</strong> by <strong>Zhenyun Hu</strong></p>
   <p>
     <a href="https://www.threads.net/@sapori_svelati">Threads</a> •
     <a href="https://www.instagram.com/sapori_svelati/">Instagram</a> • 
