@@ -43,7 +43,7 @@ const db = {
             }
             throw new Error('Email already subscribed');
         }
-        
+
         const newSubscriber = {
             id: uuidv4(),
             email: email,
