@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sapori Svelati | Admin Pannello</title>
+    <title>Admin Pannello</title>
     <!-- Use main brand icons and some local fonts if available, or just common google fonts to maintain UI aesthetic -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/brand/logo.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../css/admin.css">
 </head>
+
 <body>
 
     <!-- LOGIN OVERLAY -->
@@ -28,7 +32,7 @@
 
     <!-- MAIN DASHBOARD -->
     <div id="dashboard" class="dashboard-layout hidden">
-        
+
         <aside class="sidebar">
             <div class="sidebar-header">
                 <img src="../assets/images/brand/logo.svg" alt="Sapori Svelati" class="logo">
@@ -51,14 +55,14 @@
         </aside>
 
         <main class="main-content">
-            
+
             <!-- SUBSCRIBERS VIEW -->
             <section id="subscribers-view" class="view-section active">
                 <header class="section-header">
                     <h2>Lista Iscritti</h2>
                     <span class="badge" id="total-subscribers">0 Totali</span>
                 </header>
-                
+
                 <div class="card">
                     <table class="data-table">
                         <thead>
@@ -81,25 +85,28 @@
                 <header class="section-header">
                     <h2>Crea Nuova Newsletter</h2>
                 </header>
-                
+
                 <div class="compose-grid">
                     <div class="card composer-panel">
                         <form id="compose-form">
                             <div class="form-group">
                                 <label for="email-subject">Oggetto dell'email</label>
-                                <input type="text" id="email-subject" placeholder="Es. Il segreto della Piadina perfetta" required>
+                                <input type="text" id="email-subject"
+                                    placeholder="Es. Il segreto della Piadina perfetta" required>
                             </div>
                             <div class="form-group">
                                 <label for="email-html">Codice HTML (Incolla qui quello generato da Antigravity)</label>
-                                <textarea id="email-html" rows="15" placeholder="<b>Scrivi in HTML</b> o incolla il codice..." required></textarea>
+                                <textarea id="email-html" rows="15"
+                                    placeholder="<b>Scrivi in HTML</b> o incolla il codice..." required></textarea>
                             </div>
-                            
+
                             <div class="btn-group">
                                 <button type="button" id="btn-test-email" class="btn btn-secondary">
                                     <i class="fa-solid fa-flask"></i> Invia Prova a Me
                                 </button>
                                 <button type="submit" id="btn-send-all" class="btn btn-primary">
-                                    <i class="fa-solid fa-paper-plane"></i> Invia a Tutti (<span id="btn-subs-count">0</span>)
+                                    <i class="fa-solid fa-paper-plane"></i> Invia a Tutti (<span
+                                        id="btn-subs-count">0</span>)
                                 </button>
                             </div>
 
@@ -110,7 +117,8 @@
                     <div class="card preview-panel">
                         <h3><i class="fa-solid fa-eye"></i> Anteprima dal Vivo</h3>
                         <div class="preview-container" id="email-preview">
-                            <p class="placeholder-text">Incolla del codice HTML a sinistra per vedere l'anteprima qui...</p>
+                            <p class="placeholder-text">Incolla del codice HTML a sinistra per vedere l'anteprima qui...
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -121,7 +129,7 @@
                 <header class="section-header">
                     <h2>Archivio Email Inviate</h2>
                 </header>
-                
+
                 <div class="card">
                     <table class="data-table">
                         <thead>
@@ -143,4 +151,5 @@
 
     <script src="../js/admin.js"></script>
 </body>
+
 </html>

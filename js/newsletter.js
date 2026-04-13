@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
             form.style.flexWrap = 'wrap';
             const checkboxId = `privacy-check-${Math.random().toString(36).substring(7)}`;
             const privacyHtml = `
-                <div class="privacy-group" style="flex-basis: 100%; margin-top: 15px; text-align: center; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 5px; color: rgba(255,255,255,0.9);">
-                    <input type="checkbox" id="${checkboxId}" name="privacy" required checked style="width: auto; margin: 0; cursor: pointer; padding: 0;">
-                    <label for="${checkboxId}" style="line-height: 1.4; cursor: pointer; margin: 0;">
+                <div class="privacy-group" style="flex-basis: 100%; margin-top: 15px; text-align: center; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.9);">
+                    <input type="checkbox" id="${checkboxId}" name="privacy" required checked style="flex: none; width: auto; margin: 0 8px 0 0; cursor: pointer; padding: 0;">
+                    <label for="${checkboxId}" style="line-height: 1.4; cursor: pointer; margin: 0; flex: none; text-align: left;">
                         Ho letto e accetto la <a href="privacy-policy.html" style="color: #ffffff; text-decoration: underline; font-weight: bold;">Privacy Policy</a>.
                     </label>
                 </div>
