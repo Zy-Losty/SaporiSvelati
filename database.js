@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
-const DB_FILE = path.join(__dirname, '..', 'data', 'database.json');
+const DB_FILE = path.join(__dirname, 'database.json');
 
 // Initialize database file if it doesn't exist
 async function initDb() {

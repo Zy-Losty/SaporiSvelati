@@ -2,9 +2,9 @@
   "name": "sapori-svelati",
   "version": "1.0.0",
   "description": "Sapori Svelati Newsletter Backend",
-  "main": "backend/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

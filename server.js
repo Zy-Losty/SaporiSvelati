@@ -54,7 +54,7 @@ app.use(session({
 }));
 
 // Serve static files (frontend)
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '')));
 
 // ==========================================
 // PUBLIC API (Frontend)
@@ -237,7 +237,10 @@ app.post('/api/admin/send', requireAuth, async (req, res) => {
     }
 });
 
-// No explicit /admin route needed, handled by express.static from public/admin/index.html
+// Fallback handling per React/SPA (opzionale per admin)
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'admin', 'index.html'));
+});
 
 // START SERVER
 app.listen(PORT, () => {

@@ -1,6 +1,6 @@
 # 🍽️ Sapori Svelati — Svelare l'Anima del Cibo
 
-[![Sapori Svelati Logo](/public/assets/images/brand/logo.svg)](https://zy-losty.github.io/SaporiSvelati/)
+[![Sapori Svelati Logo](assets/images/brand/logo.svg)](https://zy-losty.github.io/SaporiSvelati/)
 
 **Sapori Svelati** è un'applicazione web completa per la divulgazione gastronomica indipendente. Esplora la storia, la cultura e le curiosità del mondo alimentare con un'interfaccia premium e un sistema integrato di newsletter.
 
@@ -32,32 +32,32 @@
 
 ```text
 SaporiSvelati/
-├── backend/         # Logica del server (API, Gestione Database, Invio Mail)
-├── data/            # Archivio dati locali (database.json)
-├── public/          # Tutti i file visibili online (Frontend)
-│   ├── admin/       # Interfaccia pannello di controllo
-│   ├── assets/      # Immagini, loghi e articoli
-│   ├── css/         # Stili CSS modulari
-│   ├── js/          # Script frontend (Newsletter, Filtri, Animazioni)
-│   ├── pages/       # Articoli del blog
-│   └── *.html       # Entry points (Home, Catalogo, Legal)
-├── package.json     # Metadati e dipendenze del progetto
-└── start-backend.bat # Script di avvio rapido per Windows
+├── admin/           # Interfaccia pannello di controllo
+├── assets/          # Immagini, loghi e media
+├── css/             # Stili CSS modulari
+├── js/              # Script frontend (Newsletter, Filtri, Animazioni)
+├── pages/           # Singoli articoli del blog
+├── database.js      # Gestore database newsletter
+├── server.js        # Motore server backend
+├── package.json     # Metadati e dipendenze
+└── start-backend.bat # Avvio rapido per Windows
 ```
 
 ## 🚀 Come Visualizzare e Gestire il Progetto
 
-Per avviare il sito completo di funzionalità backend e newsletter:
+### Hosting Statico (GitHub Pages)
+Le funzioni di navigazione e lettura articoli sono attive staticamente.
 
-1. Assicurati di avere [Node.js](https://nodejs.org/) installato sul PC.
-2. Scarica il progetto e fai doppio clic sul file **`start-backend.bat`**.
-3. Il sito sarà visibile su: `http://localhost:3000`
-4. Il pannello amministratore è accessibile su: `http://localhost:3000/admin` (Password di default: `admin123`)
+### Funzioni Backend (Newsletter & Admin)
+Per avviare il backend completo sul proprio PC:
+1. Installa [Node.js](https://nodejs.org/).
+2. Avvia **`start-backend.bat`**.
+3. Apri: `http://localhost:3000` (Sito) o `http://localhost:3000/admin` (Pannello)
 
 ---
 
 <div align="center">
-  <p>Creato con cura da <strong>Antigravity Designer</strong></p>
+  <p>Created with <strong>Antigravity</strong> by <strong>Zhenyun Hu</strong></p>
   <p>
     <a href="https://www.threads.net/@sapori_svelati">Threads</a> •
     <a href="https://www.instagram.com/sapori_svelati/">Instagram</a> • 

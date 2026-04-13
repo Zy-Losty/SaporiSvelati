@@ -32,6 +32,6 @@ echo.
 echo PREMI [CTRL + C] in questa finestra per spegnere il server.
 echo.
 
-node backend/server.js
+node server.js
 
 pause
