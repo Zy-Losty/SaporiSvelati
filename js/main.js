@@ -113,10 +113,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const acceptBtn = document.getElementById('accept-cookies');
     const rejectBtn = document.getElementById('reject-cookies');
 
+    function initTracking() {
+        // --- Google Tag (gtag.js) ---
+        const gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-LW84VKE7ND';
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LW84VKE7ND');
+
+        // --- Meta Pixel Code ---
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '8412795355467525');
+        fbq('track', 'PageView');
+    }
+
     if (cookieModal) {
-        // Show after 2 seconds
+        // If already accepted, init tracking immediately
+        if (localStorage.getItem('cookiesAccepted') === 'true') {
+            initTracking();
+        }
+
+        // Show modal after 2 seconds if no choice made
         setTimeout(() => {
-            if (!localStorage.getItem('cookiesAccepted')) {
+            if (localStorage.getItem('cookiesAccepted') === null) {
                 cookieModal.classList.add('active');
             }
         }, 2000);
@@ -125,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             acceptBtn.addEventListener('click', () => {
                 cookieModal.classList.remove('active');
                 localStorage.setItem('cookiesAccepted', 'true');
+                initTracking();
             });
         }
 
@@ -132,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rejectBtn.addEventListener('click', () => {
                 cookieModal.classList.remove('active');
                 localStorage.setItem('cookiesAccepted', 'false');
+                // Tracking is not initialized
             });
         }
     }
