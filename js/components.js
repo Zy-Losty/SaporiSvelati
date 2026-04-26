@@ -117,9 +117,10 @@
         return `
 <div class="cookie-modal" id="cookie-modal">
     <h4>🍪 Privacy &amp; Cookie</h4>
-    <p>Utilizziamo i cookie per migliorare la tua esperienza su Sapori Svelati. Esplorando il sito, accetti la nostra politica sulla riservatezza.</p>
+    <p>Utilizziamo i cookie per migliorare la tua esperienza. Puoi accettare tutti i cookie, rifiutare quelli non necessari o consultare la nostra informativa per saperne di più.</p>
     <div class="cookie-buttons">
         <button class="btn btn-primary btn-small" id="accept-cookies">Accetta</button>
+        <button class="btn btn-ghost btn-small" id="reject-cookies">Nega</button>
         <a href="${root}cookie-policy.html" class="btn btn-ghost btn-small">Dettagli</a>
     </div>
 </div>`;

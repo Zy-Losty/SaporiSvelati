@@ -111,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Cookie Modal Logic ---
     const cookieModal = document.getElementById('cookie-modal');
     const acceptBtn = document.getElementById('accept-cookies');
+    const rejectBtn = document.getElementById('reject-cookies');
 
     if (cookieModal) {
         // Show after 2 seconds
@@ -120,10 +121,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 2000);
 
-        acceptBtn.addEventListener('click', () => {
-            cookieModal.classList.remove('active');
-            localStorage.setItem('cookiesAccepted', 'true');
-        });
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', () => {
+                cookieModal.classList.remove('active');
+                localStorage.setItem('cookiesAccepted', 'true');
+            });
+        }
+
+        if (rejectBtn) {
+            rejectBtn.addEventListener('click', () => {
+                cookieModal.classList.remove('active');
+                localStorage.setItem('cookiesAccepted', 'false');
+            });
+        }
     }
 
     // --- Dynamic Page Title (Alt Tab Engagement) ---

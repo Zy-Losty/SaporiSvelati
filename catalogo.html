@@ -1,7 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it" data-root="./">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LW84VKE7ND"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LW84VKE7ND');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
@@ -289,7 +298,11 @@
                 <div id="no-results" class="no-results" style="display: none;">
                     <i class="fa-solid fa-face-frown"></i>
                     <p>Nessun articolo trovato per questa categoria.</p>
-                    <button class="btn btn-ghost" onclick="resetFilters()">Mostra tutti gli articoli</but    </main>
+                    <button class="btn btn-ghost" onclick="resetFilters()">Mostra tutti gli articoli</button>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Componente Cookie Modal -->
     <div id="site-cookie-modal"></div>
