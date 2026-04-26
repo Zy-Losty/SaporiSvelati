@@ -115,13 +115,16 @@
     // ──────────────────────────────────────────────
     function buildCookieModal() {
         return `
-<div class="cookie-modal" id="cookie-modal">
-    <h4>🍪 Privacy &amp; Cookie</h4>
-    <p>Utilizziamo i cookie per migliorare la tua esperienza. Puoi accettare tutti i cookie, rifiutare quelli non necessari o consultare la nostra informativa per saperne di più.</p>
+<div class="cookie-modal" id="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal-header">
+        <div class="cookie-icon" aria-hidden="true">🍪</div>
+        <h4 id="cookie-title">Privacy &amp; Cookie</h4>
+    </div>
+    <p>Usiamo i cookie per migliorare la navigazione e analizzare il traffico in modo anonimo. Puoi accettare, rifiutare o consultare la <a href="${root}cookie-policy.html">Cookie Policy</a>.</p>
     <div class="cookie-buttons">
-        <button class="btn btn-primary btn-small" id="accept-cookies">Accetta</button>
-        <button class="btn btn-ghost btn-small" id="reject-cookies">Nega</button>
-        <a href="${root}cookie-policy.html" class="btn btn-ghost btn-small">Dettagli</a>
+        <button class="cookie-btn-accept" id="accept-cookies">✓ Accetta</button>
+        <button class="cookie-btn-reject" id="reject-cookies">Nega</button>
+        <a href="${root}cookie-policy.html" class="cookie-btn-details">Info</a>
     </div>
 </div>`;
     }
