@@ -17,11 +17,12 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '@Nicola04'; // Default pas
 // 3. user: "resend"
 // 4. pass: "INCOLLA_QUI_LA_TUA_CHIAVE_API"
 let transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
+    host: 'smtp.gmail.com', // Configurato per Gmail
+    port: 465,
+    secure: true,
     auth: {
-        user: 'mario.rossi@ethereal.email', // Inseriremo credenziali reali qui
-        pass: 'password_temporanea'
+        user: 'saporisvelati@gmail.com',
+        pass: 'INSERISCI_QUI_LA_TUA_PASSWORD_APPLICAZIONE' // Usa una App Password di Google
     }
 });
 
@@ -63,7 +64,7 @@ app.use(express.static(path.join(__dirname, '')));
 // Iscrizione Newsletter
 app.post('/api/subscribe', async (req, res) => {
     const { email, privacy } = req.body;
-    
+
     if (!email || !email.includes('@')) {
         return res.status(400).json({ error: 'Email non valida.' });
     }
@@ -88,7 +89,7 @@ app.post('/api/subscribe', async (req, res) => {
 app.get('/api/unsubscribe/:token', async (req, res) => {
     const token = req.params.token;
     const success = await db.unsubscribe(token);
-    
+
     if (success) {
         res.send(`
             <div style="font-family: sans-serif; text-align: center; margin-top: 50px;">
@@ -183,9 +184,9 @@ app.post('/api/admin/send', requireAuth, async (req, res) => {
             // Invio di prova all'amministratore (una sola finta mail)
             const testEmail = 'admin@saporisvelati.test';
             const htmlWithUnsubscribe = htmlContent + `<br><hr><p style="font-size:12px; color:#888;">Questo è un invio di prova. Nessun link di disiscrizione reale.</p>`;
-            
+
             infoData = await transporter.sendMail({
-                from: '"Sapori Svelati" <newsletter@saporisvelati.test>',
+                from: '"Sapori Svelati" <saporisvelati@gmail.com>',
                 to: testEmail,
                 subject: '[TEST] ' + subject,
                 html: htmlWithUnsubscribe
@@ -195,7 +196,7 @@ app.post('/api/admin/send', requireAuth, async (req, res) => {
         } else {
             // Invio reale a tutti gli iscritti attivi
             recipients = await db.getActiveSubscribers();
-            
+
             if (recipients.length === 0) {
                 return res.status(400).json({ error: 'Nessun iscritto attivo a cui inviare.' });
             }
@@ -211,7 +212,7 @@ app.post('/api/admin/send', requireAuth, async (req, res) => {
                 `;
 
                 infoData = await transporter.sendMail({
-                    from: '"Sapori Svelati" <newsletter@saporisvelati.test>', // Cambieremo questo con l'email reale
+                    from: '"Sapori Svelati" <saporisvelati@gmail.com>', // Cambieremo questo con l'email reale
                     to: sub.email,
                     subject: subject,
                     html: htmlWithUnsubscribe
@@ -224,9 +225,9 @@ app.post('/api/admin/send', requireAuth, async (req, res) => {
 
         // Se stiamo usando Ethereal (test) Node restituisce un URL per visualizzare l'email inviata
         const previewUrl = nodemailer.getTestMessageUrl(infoData);
-        
-        res.json({ 
-            success: true, 
+
+        res.json({
+            success: true,
             message: isTest ? 'Email di prova inviata!' : `Newsletter inviata a ${recipients.length} iscritti!`,
             previewUrl: previewUrl || null
         });
