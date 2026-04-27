@@ -7,10 +7,6 @@
 **Un viaggio narrativo attraverso la storia, la cultura e le tradizioni del mondo gastronomico.**
 
 [![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-A0522D?style=for-the-badge&logo=github)](https://zy-losty.github.io/SaporiSvelati/)
-[![Licenza](https://img.shields.io/badge/Licenza-MIT-78866B?style=for-the-badge)](LICENSE)
-
----
-
 [![Facebook](https://img.shields.io/badge/Facebook-Sapori%20Svelati-1877F2?style=flat-square&logo=facebook)](https://www.facebook.com/people/Sapori-Svelati/61559931303682/)
 [![Instagram](https://img.shields.io/badge/Instagram-@sapori__svelati-E4405F?style=flat-square&logo=instagram)](https://www.instagram.com/sapori_svelati/)
 [![Threads](https://img.shields.io/badge/Threads-@sapori__svelati-000000?style=flat-square&logo=threads)](https://www.threads.net/@sapori_svelati)
