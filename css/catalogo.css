@@ -134,11 +134,11 @@
         gap: 1.5rem;
         align-items: stretch;
     }
-    
+
     .filter-controls {
         justify-content: center;
     }
-    
+
     .search-box {
         max-width: none;
     }
@@ -148,11 +148,11 @@
     .catalog-hero {
         padding-top: 8rem;
     }
-    
+
     .filter-controls {
         gap: 0.5rem;
     }
-    
+
     .filter-btn {
         padding: 0.5rem 1rem;
         font-size: 0.8rem;
