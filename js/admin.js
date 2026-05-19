@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // Helper to escape HTML and prevent XSS in dynamic text rendering
+    function escapeHTML(str) {
+        if (str === null || str === undefined) return '';
+        return String(str).replace(/[&<>"']/g, (m) => {
+            switch (m) {
+                case '&': return '&amp;';
+                case '<': return '&lt;';
+                case '>': return '&gt;';
+                case '"': return '&quot;';
+                case "'": return '&#039;';
+                default: return m;
+            }
+        });
+    }
+
     // Elements
     const loginOverlay = document.getElementById('login-overlay');
     const dashboard = document.getElementById('dashboard');
@@ -102,11 +117,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const date = new Date(s.createdAt).toLocaleDateString('it-IT');
             const tr = document.createElement('tr');
             tr.innerHTML = `
-                <td>${s.email}</td>
-                <td><span class="status-${s.status}">${s.status.toUpperCase()}</span></td>
-                <td>${date}</td>
+                <td>${escapeHTML(s.email)}</td>
+                <td><span class="status-${escapeHTML(s.status)}">${escapeHTML(s.status.toUpperCase())}</span></td>
+                <td>${escapeHTML(date)}</td>
                 <td>
-                    <button class="action-btn" onclick="deleteSub('${s.id}')" title="Elimina">
+                    <button class="action-btn" onclick="deleteSub('${escapeHTML(s.id)}')" title="Elimina">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </td>
@@ -130,9 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const date = new Date(c.sentAt).toLocaleString('it-IT');
             const tr = document.createElement('tr');
             tr.innerHTML = `
-                <td>${date}</td>
-                <td><strong>${c.subject}</strong></td>
-                <td>${c.sentCount}</td>
+                <td>${escapeHTML(date)}</td>
+                <td><strong>${escapeHTML(c.subject)}</strong></td>
+                <td>${escapeHTML(String(c.sentCount))}</td>
             `;
             campsTableBody.appendChild(tr);
         });
@@ -151,7 +166,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (content.trim() === '') {
             emailPreview.innerHTML = '<p class="placeholder-text">Incolla del codice HTML a sinistra...</p>';
         } else {
-            emailPreview.innerHTML = content;
+            // Per evitare vulnerabilità DOM-based XSS e al contempo mostrare una anteprima
+            // fedele del codice HTML (che non dovrebbe eseguire JS, come nei client email),
+            // utilizziamo un iframe protetto con l'attributo "sandbox".
+            let iframe = emailPreview.querySelector('iframe');
+            if (!iframe) {
+                emailPreview.innerHTML = '';
+                iframe = document.createElement('iframe');
+                iframe.setAttribute('sandbox', ''); // Blocca script, form, popups, ecc.
+                iframe.style.width = '100%';
+                iframe.style.height = '450px';
+                iframe.style.border = 'none';
+                iframe.style.background = '#ffffff';
+                iframe.style.borderRadius = '4px';
+                emailPreview.appendChild(iframe);
+            }
+            iframe.srcdoc = content;
         }
     });
 
@@ -181,9 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await res.json();
         
         if (res.ok) {
-            let msg = data.message;
+            let msg = escapeHTML(data.message);
             if (data.previewUrl) {
-                msg += ` <a href="${data.previewUrl}" target="_blank">Visualizza Email di Test Inviata</a> (Poiché stiamo usando Ethereal di prova)`;
+                msg += ` <a href="${escapeHTML(data.previewUrl)}" target="_blank">Visualizza Email di Test Inviata</a> (Poiché stiamo usando Ethereal di prova)`;
             }
             showFeedback(msg, 'success', true);
             if (!isTest) {
@@ -191,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Clear form
                 document.getElementById('email-subject').value = '';
                 htmlInput.value = '';
-                emailPreview.innerHTML = '';
+                emailPreview.innerHTML = '<p class="placeholder-text">Incolla del codice HTML a sinistra...</p>';
             }
         } else {
             showFeedback(data.error, 'error');
