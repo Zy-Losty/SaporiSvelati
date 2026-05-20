@@ -66,7 +66,7 @@
                 <ul>
                     <li><a href="${root}index.html">Home</a></li>
                     <li><a href="${root}catalogo.html">Catalogo Articoli</a></li>
-                    <li><a href="${root}brandbook.html">Brandbook &amp; Identity</a></li>
+                    // <li><a href="${root}brandbook.html">Brandbook &amp; Identity</a></li>
                 </ul>
             </div>
             <div class="footer-links">
