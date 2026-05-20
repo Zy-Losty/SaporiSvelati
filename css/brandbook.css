@@ -1,0 +1,806 @@
+/* ==========================================================================
+   SAPORI SVELATI — Brandbook Stylesheet (Multi-Pagina)
+   Design premium ed interattivo coordinato con l'estetica del brand
+   ========================================================================== */
+
+/* --- Hero Brandbook --- */
+.hero-brandbook {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    background: linear-gradient(180deg, rgba(160, 82, 45, 0.05) 0%, rgba(255, 248, 231, 0) 100%);
+    text-align: center;
+    position: relative;
+}
+
+.hero-brandbook .badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.hero-brandbook h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.hero-brandbook p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--text);
+    opacity: 0.85;
+}
+
+/* --- Subnav Secondaria (Sticky Glassmorphic Bar) --- */
+.brandbook-subnav-container {
+    position: sticky;
+    top: 5rem;
+    z-index: 100;
+    margin-bottom: 3rem;
+}
+
+.brandbook-subnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 248, 231, 0.8);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(160, 82, 45, 0.15);
+    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.brandbook-subnav-list {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.brandbook-subnav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    transition: var(--transition-smooth);
+    opacity: 0.75;
+}
+
+.brandbook-subnav-link:hover {
+    color: var(--primary);
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+}
+
+.brandbook-subnav-link.active {
+    color: var(--canvas);
+    background: var(--primary);
+    box-shadow: 0 4px 12px rgba(160, 82, 45, 0.2);
+    opacity: 1;
+}
+
+.brandbook-subnav-back {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px dashed var(--accent);
+    transition: var(--transition-smooth);
+}
+
+.brandbook-subnav-back:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+    transform: translateX(-3px);
+}
+
+/* --- HUB / INDICE PRINCIPALE --- */
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: var(--section-gap);
+}
+
+.hub-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 28px;
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.hub-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.hub-card-num {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--accent-light);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+.hub-card:hover .hub-card-num {
+    color: var(--accent);
+}
+
+.hub-card-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.hub-card h3 {
+    font-size: 1.45rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.hub-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text);
+    opacity: 0.85;
+    margin-bottom: 2rem;
+}
+
+.hub-card-btn {
+    margin-top: auto;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hub-card-btn i {
+    transition: transform 0.3s ease;
+}
+
+.hub-card:hover .hub-card-btn i {
+    transform: translateX(5px);
+}
+
+/* Stretched link to make whole card clickable */
+.hub-card-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
+/* --- Brandbook Layout (Single page content) --- */
+.brandbook-content-page {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 5rem;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: var(--section-gap);
+    position: relative;
+    overflow: hidden;
+}
+
+.brandbook-chapter-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid var(--accent-light);
+    padding-bottom: 1.5rem;
+}
+
+/* --- Chapter Elements --- */
+
+/* Chapter 1: Analysis Grid */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.analysis-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(59, 49, 49, 0.04);
+    transition: var(--transition-smooth);
+}
+
+.analysis-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(160, 82, 45, 0.08);
+    border-color: var(--accent);
+}
+
+.analysis-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.analysis-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    color: var(--accent);
+}
+
+.analysis-card h3 {
+    font-size: 1.35rem;
+    color: var(--primary);
+}
+
+/* Chapter 2: Values & Manifesto */
+.brandbook-quote {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary);
+    line-height: 1.5;
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    border-left: 4px solid var(--accent);
+    background: rgba(120, 134, 107, 0.05);
+    border-radius: 0 20px 20px 0;
+}
+
+.brandbook-quote cite {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.value-card {
+    background: var(--white-soft);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    border-left: 6px solid var(--primary);
+    transition: var(--transition-smooth);
+}
+
+.value-card:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.value-card h4 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.manifesto-box {
+    background: var(--text);
+    color: var(--canvas);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.manifesto-box h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--canvas);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.manifesto-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.manifesto-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.manifesto-num {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--accent);
+    font-weight: 900;
+    line-height: 1;
+}
+
+/* Chapter 3: Visual Design & Color Swatches */
+.swatches-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.swatch-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    transition: var(--transition-smooth);
+    position: relative;
+    cursor: pointer;
+}
+
+.swatch-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.swatch-color {
+    height: 130px;
+    width: 100%;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.swatch-card:hover .swatch-color {
+    filter: brightness(1.05);
+}
+
+.swatch-info {
+    padding: 1.5rem 1rem;
+}
+
+.swatch-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--text);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.swatch-hex {
+    font-family: monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: rgba(160, 82, 45, 0.08);
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.swatch-details {
+    font-size: 0.75rem;
+    color: var(--text);
+    opacity: 0.7;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+.copy-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(59, 49, 49, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-smooth);
+}
+
+.swatch-card:hover .copy-badge {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.swatch-card.copied .copy-badge {
+    background: var(--accent);
+}
+
+/* Typography Display */
+.typo-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    background: rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 3rem;
+    border: 1px solid rgba(255,255,255,0.7);
+    margin-bottom: 3rem;
+}
+
+.typo-block {
+    border-bottom: 1px dashed rgba(59, 49, 49, 0.15);
+    padding-bottom: 2rem;
+}
+
+.typo-block:last-child {
+    border: none;
+    padding-bottom: 0;
+}
+
+.typo-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.typo-font-name {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.typo-h1-sample {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: var(--primary);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.typo-body-sample {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.typo-abc {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
+/* Chapter 4: Communication Step Accordion */
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.accordion-item {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    text-align: left;
+}
+
+.accordion-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.accordion-num {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: 900;
+}
+
+.accordion-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.accordion-icon {
+    font-size: 1.1rem;
+    color: var(--primary);
+    transition: transform 0.4s ease;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 300px;
+}
+
+.accordion-inner {
+    padding: 0 2rem 2rem 4.75rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text);
+    opacity: 0.9;
+}
+
+/* Table Style */
+.brandbook-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 3rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.brandbook-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.brandbook-table th {
+    background: var(--primary);
+    color: var(--canvas);
+    padding: 1.2rem 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.brandbook-table td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(160, 82, 45, 0.1);
+}
+
+.brandbook-table tr:last-child td {
+    border: none;
+}
+
+.brandbook-table tr:nth-child(even) {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Chapter 5: Target Personas & KPI Counter */
+.personas-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.persona-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    overflow: hidden;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 15px 35px rgba(59, 49, 49, 0.05);
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.persona-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
+}
+
+.persona-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: var(--accent);
+    box-shadow: 0 8px 20px rgba(120, 134, 107, 0.2);
+}
+
+.persona-name {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.persona-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.persona-details {
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.persona-details p {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(160, 82, 45, 0.08);
+    padding-bottom: 0.75rem;
+}
+
+.persona-details p:last-child {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* KPI Counter Section */
+.kpis-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.kpi-card {
+    background: var(--text);
+    color: var(--canvas);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255, 248, 231, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    border-color: var(--accent);
+}
+
+.kpi-number {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    color: var(--accent);
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* --- Media Queries (Brandbook) --- */
+@media (max-width: 1024px) {
+    .hub-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .brandbook-subnav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .brandbook-subnav-list {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        justify-content: flex-start;
+    }
+    
+    .brandbook-subnav-link {
+        white-space: nowrap;
+    }
+    
+    .brandbook-content-page {
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hub-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .analysis-grid, .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .swatches-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .personas-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .kpis-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .typo-showcase {
+        padding: 1.5rem;
+    }
+}

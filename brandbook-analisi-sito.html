@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it" data-root="./">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi del Sito — Brandbook Sapori Svelati</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/brand/logo.svg">
+    <meta name="description"
+        content="Leggi l'analisi tecnica del sito web, l'esperienza utente, le performance, i parametri SEO e di accessibilità del portale di Sapori Svelati.">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/brandbook.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <a href="#brandbook-content" class="skip-link">Salta al contenuto principale del capitolo</a>
+
+    <!-- Componente Header Iniettato Dinamicamente -->
+    <div id="site-header"></div>
+
+    <main id="main-content">
+        
+        <!-- Hero Section -->
+        <section class="hero-brandbook">
+            <div class="container reveal">
+                <span class="badge">Capitolo 01</span>
+                <h1>Analisi Tecnica e UX/UI</h1>
+                <p>Uno studio analitico dettagliato dell'infrastruttura digitale di Sapori Svelati, per capire come il design system si traduca in codice pulito, accessibile e veloce.</p>
+            </div>
+        </section>
+
+        <!-- Chapter Portal Navigation -->
+        <div class="container brandbook-subnav-container reveal">
+            <div class="brandbook-subnav">
+                <a href="brandbook.html" class="brandbook-subnav-back"><i class="fa-solid fa-arrow-left"></i> Indice</a>
+                <ul class="brandbook-subnav-list">
+                    <li><a href="brandbook-analisi-sito.html" class="brandbook-subnav-link active"><i class="fa-solid fa-magnifying-glass"></i> 1. Analisi Sito</a></li>
+                    <li><a href="brandbook-identita-valori.html" class="brandbook-subnav-link"><i class="fa-solid fa-landmark"></i> 2. Identità</a></li>
+                    <li><a href="brandbook-linee-guida-grafiche.html" class="brandbook-subnav-link"><i class="fa-solid fa-palette"></i> 3. Visual</a></li>
+                    <li><a href="brandbook-strategia-comunicativa.html" class="brandbook-subnav-link"><i class="fa-solid fa-pen-nib"></i> 4. Scrittura</a></li>
+                    <li><a href="brandbook-strategia-marketing.html" class="brandbook-subnav-link"><i class="fa-solid fa-chart-line"></i> 5. Marketing</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container" id="brandbook-content">
+            <div class="brandbook-content-page reveal">
+                <h2 class="brandbook-chapter-title">L'Infrastruttura Digitale di Sapori Svelati</h2>
+                <p style="margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.8;">Sapori Svelati adotta un approccio costruttivo <strong>Vanilla</strong> ad alta efficienza per garantire caricamenti fulminei e accessibilità universale, senza dipendere da framework Javascript pesanti.</p>
+                
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <div class="analysis-card-header">
+                            <div class="analysis-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <h3>UX/UI &amp; Immersione Visiva</h3>
+                        </div>
+                        <p>L'esperienza utente si sviluppa su toni caldi (Crema Pergamena `#FFF8E7` e Terracotta `#A0522D`) che riducono l'affaticamento visivo e richiamano l'editoria artigianale. Le micro-interazioni di scroll reveal e il titolo alternativo del tab del browser ("Ritorna 🍕") invitano al rientro e aumentano il dwell time.</p>
+                    </div>
+                    
+                    <div class="analysis-card">
+                        <div class="analysis-card-header">
+                            <div class="analysis-icon"><i class="fa-solid fa-cubes"></i></div>
+                            <h3>Architettura Modulare Vanilla</h3>
+                        </div>
+                        <p>Uso esclusivo di HTML5, CSS3 e Javascript nativo. Per ovviare alla ridondanza del codice in un sito multi-articolo statico di 18 pagine, il modulo `components.js` inietta dinamicamente Header, Footer, Newsletter e Cookie Consent, unendo la manutenibilità di una Single Page Application alle eccellenti prestazioni SEO dei file statici.</p>
+                    </div>
+                    
+                    <div class="analysis-card">
+                        <div class="analysis-card-header">
+                            <div class="analysis-icon"><i class="fa-solid fa-universal-access"></i></div>
+                            <h3>Accessibilità Universale (A11y)</h3>
+                        </div>
+                        <p>Piena conformità agli standard W3C. La pagina implementa skip-links per bypassare la navigazione, contorni `:focus-visible` ad alta leggibilità in verde salvia dedicati all'uso con tastiera, ed etichette semantiche ARIA complete per screen reader.</p>
+                    </div>
+                    
+                    <div class="analysis-card">
+                        <div class="analysis-card-header">
+                            <div class="analysis-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <h3>GDPR &amp; Tracciamento Etico</h3>
+                        </div>
+                        <p>Rispetto totale della privacy dei lettori. Nessun pixel di tracciamento di Google Analytics (`G-LW84VKE7ND`) o Meta Pixel (`8412795355467525`) viene caricato in memoria o installa cookie prima che l'utente esprima un consenso esplicito e attivo cliccando su "✓ Accetta" nel cookie banner.</p>
+                    </div>
+                </div>
+
+                <div style="background: var(--accent-light); border: 1px solid var(--accent); border-radius: 20px; padding: 2.5rem; margin-top: 3rem;">
+                    <h3 style="color: var(--primary); font-family: var(--font-heading); margin-bottom: 1rem;"><i class="fa-solid fa-lightbulb"></i> Sintesi e Opportunità Future</h3>
+                    <p style="margin-bottom: 0; font-size: 0.95rem;">L'infrastruttura di Sapori Svelati si posiziona al vertice per velocità e sostenibilità digitale. In futuro, l'adozione di un leggero generatore statico (SSG) potrebbe consentire di compilare l'iniezione Javascript dei componenti lato build, rendendo la navigazione visibile nei sorgenti HTML grezzi a favore di una SEO ancora più profonda.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Componente Cookie Modal Iniettato -->
+    <div id="site-cookie-modal"></div>
+
+    <!-- Componente Footer Iniettato -->
+    <div id="site-footer"></div>
+
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
